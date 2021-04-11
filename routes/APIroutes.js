@@ -1,5 +1,5 @@
 var router = require("express").Router();
-var DB = require("../routes");
+var DB = require("../models");
 
 router.get("/api/books",function(req,res){
     DB.find()
