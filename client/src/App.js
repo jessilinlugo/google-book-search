@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from "./components/Navbar";
+import Search from "./components/Search";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <div className="container">
+        <h1 className="mt-2">Search for a Book</h1>
+        <h3 className="subtext"> Then Save It for Later! </h3>
+      <Search/>
+      <h6 className="subtext mt-2">Ex: The Great Gatsby by F. Scott Fitzgerald</h6>
+      </div>
     </div>
   );
 }
