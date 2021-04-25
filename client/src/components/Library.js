@@ -9,23 +9,22 @@ class Library extends React.Component {
         bookData: []
     }
 
-    searchBtn = () => {
+    componentDidMount = () => {
         console.log();
         API.getSavedBooks()
-        .then(books => {
+        .then(response => {
+            let books = response.data
             console.log(books);
-            const results = books.data.items;
-            var booksList = results.map(book => ({
-                title: book.volumeInfo.title,
-                summary: book.volumeInfo.description,
-                author: book.volumeInfo.authors[0] || "Not available",
+            let booksList = books.map(book => ({
+                title: book.title,
+                summary: book.description,
+                author: book.author,
                 deleted: false,
                 id:book._id
             })
-            );
-            console.log(booksList);
-            this.setState({
-              bookData: booksList  
+            )
+            console.log("Lirary",booksList);
+            this.setState({              bookData: books 
             })
             })
     }

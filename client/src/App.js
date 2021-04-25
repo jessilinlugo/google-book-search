@@ -16,15 +16,15 @@ function App() {
 
       </div>
       <div className="container">
-      <div className="row">
-        <div className="col-md-6">
-          <Search />
+        <div className="row">
+              <div className="col-md-9">
+                <Search />
 
+              </div>
+              <div className="col-md-3">
+                <Library />
+              </div>
         </div>
-        <div className="col-md-6">
-          <Library />
-        </div>
-      </div>
       </div>
       <Router>
         <div>
