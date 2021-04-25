@@ -3,15 +3,15 @@ import API from "../utils/API";
 import book from "./Book";
 import Book from "./Book";
 
-class Search extends React.Component {
+class Library extends React.Component {
     state = {
         input: "",
         bookData: []
     }
 
     searchBtn = () => {
-        console.log(this.state.input);
-        API.getGoogleBooks(this.state.input)
+        console.log();
+        API.getSavedBooks()
         .then(books => {
             console.log(books);
             const results = books.data.items;
@@ -19,7 +19,8 @@ class Search extends React.Component {
                 title: book.volumeInfo.title,
                 summary: book.volumeInfo.description,
                 author: book.volumeInfo.authors[0] || "Not available",
-                saved: false
+                deleted: false,
+                id:book._id
             })
             );
             console.log(booksList);
@@ -29,21 +30,18 @@ class Search extends React.Component {
             })
     }
 
-    handleInputChange = (event) => {
-        const value = event.target.value;
-        this.setState({
-            input: value
-        })
-    }
-saveBook = (bookDetails) => {
+deleteBook = (bookDetails) => {
     console.log(bookDetails);
-    API.saveBook(bookDetails)
+    API.deleteBook(bookDetails.id)
     .then(result => {
         console.log(result);
         let booksList = this.state.bookData
+        let updateBooks = []
         for(let i=0;i<booksList.length;i++){
-            if(booksList[i].title === bookDetails.title && booksList[i].summary === bookDetails.summary ){
-                booksList[i].saved = true
+            if(booksList[i].id !== bookDetails.id){
+                updateBooks.push(booksList[i])
+            }else{
+                booksList[i].deleted = true
             }
         }
         this.setState({
@@ -55,23 +53,20 @@ saveBook = (bookDetails) => {
     render() {
         return (
             <div className="row">
- 
-                <div className="input-group mt-3">
-                    
-                        <input type="text" value={this.state.input} className="form-control" onChange={this.handleInputChange} placeholder="Enter a Book Title here" />
-                        <button onClick={this.searchBtn} type="submit" className="btn btn-primary">Submit</button>
-                    </div>
+                <h1>Library</h1>
+              <div className="d-fle flex-wrap">
             {this.state.bookData.map((book,key) => (<Book title={book.title}
             key={key}
             author={book.author}
-            saveBook={this.saveBook}
+            id={book.id}
+            deleteBook={this.deleteBook}
             summary={book.summary}
             saved={book.saved}/>) )}
-                        
+                        </div>
 
             </div>
         )
     }
 }
 
-export default Search;
+export default Library;

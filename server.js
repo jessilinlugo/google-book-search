@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 var PORT = 3001;
 var app = express();
 var routes = require("./routes/APIroutes");
+var path = require("path")
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())

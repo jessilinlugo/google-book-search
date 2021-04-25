@@ -1,10 +1,10 @@
 var router = require("express").Router();
 var DB = require("../models");
 
-router.get("/api/books",function(req,res){
+router.get("/api/books/all",function(req,res){
     DB.Book.find()
     .then(records => {
-        console.log("Get route",records)
+        console.log("Get saved route",records)
         res.json(records)
     })
 });
