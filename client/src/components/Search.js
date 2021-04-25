@@ -32,6 +32,13 @@ class Search extends React.Component {
             input: value
         })
     }
+saveBook = (bookDetails) => {
+    console.log(bookDetails);
+    API.saveBook(bookDetails)
+    .then(result => {
+        console.log(result);
+    })
+}
 
     render() {
         return (
@@ -45,6 +52,7 @@ class Search extends React.Component {
             {this.state.bookData.map((book,key) => (<Book title={book.title}
             key={key}
             author={book.author}
+            saveBook={this.saveBook}
             summary={book.summary}/>) )}
                         
 
