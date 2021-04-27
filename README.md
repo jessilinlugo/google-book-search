@@ -4,7 +4,7 @@
 
 ------------
 
-Link to my deployed application : <a href="#">Here</a>
+Link to my deployed application : <a href="https://still-gorge-00379.herokuapp.com/">Here</a>
 
 ------------
 
@@ -16,7 +16,7 @@ That's all folks!
 
 ------------
 
-Link to my deployed application : <a href="#">Here</a>
+Link to my deployed application : <a href="https://still-gorge-00379.herokuapp.com/">Here</a>
 
 <img src="client/public/search-1.png" alt="initial books"/>
 <img src="client/public/search-2.png" alt="search"/>
