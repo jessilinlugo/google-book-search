@@ -60,7 +60,7 @@ saveBook = (bookDetails) => {
                 <div className="input-group mt-3">
                     
                         <input type="text" value={this.state.input} className="form-control" onChange={this.handleInputChange} placeholder="Enter a Book Title here" />
-                        <button onClick={this.searchBtn} type="submit" className="btn btn-primary">Submit</button>
+                        <button onClick={this.searchBtn} type="submit" className="btn btn-primary">Search</button>
                     </div>
             {this.state.bookData.map((book,key) => (<Book title={book.title}
             key={key}
