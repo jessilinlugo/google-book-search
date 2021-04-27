@@ -49,6 +49,7 @@ saveBook = (bookDetails) => {
         this.setState({
             bookData : booksList
         })
+        window.location.reload()
     })
 }
 

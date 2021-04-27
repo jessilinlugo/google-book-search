@@ -17,11 +17,11 @@ function App() {
       </div>
       <div className="container">
         <div className="row">
-              <div className="col-md-9">
+              <div className="col-md-6">
                 <Search />
 
               </div>
-              <div className="col-md-3">
+              <div className="col-md-6">
                 <Library />
               </div>
         </div>
