@@ -1,5 +1,5 @@
 # Google Book Search
-## *Subtitle/Mini Description*
+## *IDK Google It*
 **Technologies used: Express, MongoDB, Router, Bootstrap**
 
 ------------
